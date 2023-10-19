@@ -6,6 +6,6 @@ namespace DentistaApi.Models
         public string Telefone { get; set; } = "";
         public DateOnly DataNascimento { get; set; }
         public bool Ativo { get; set; }
-        public Especialidade? Especialidade { get; set; }
+        public Especialidade Especialidade { get; set; } = null!
     }
 }
