@@ -2,7 +2,7 @@ namespace DentistaApi.Models
 {
     public class Consulta
     {
-        public string ConsultaId { get; set; } = "";
+        public string? ConsultaId { get; set; }
         public string ProcedimentoConsulta { get; set; } = "";
         public DateOnly DataConsulta { get; set; }
         public TimeOnly HoraConsulta { get; set; }

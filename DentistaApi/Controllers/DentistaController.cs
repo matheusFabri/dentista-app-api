@@ -7,34 +7,34 @@ namespace DentistaApi.Controllers;
 
 [ApiController]
 [Route("v1/[controller]")]
-public class UsuarioController : ControllerBase
+public class DentistaController : ControllerBase
 {
     [HttpGet]
-    public ActionResult<IList<Usuario>> Get()
+    public ActionResult<IList<Dentista>> Get()
     {
 
-        var usuarios = db.Usuarios.ToList();
+        var dentiDentistas = db.Dentistas.ToList();
 
-        return Ok(usuarios);
+        return Ok(dentiDentistas);
     }
 
     [HttpGet]
     [Route("{id}")]
-    public ActionResult<Usuario> GetById(string id)
+    public ActionResult<Dentista> GetById(string id)
     {
 
-        var usuario = db.Usuarios.FirstOrDefault(x => x.Id == id);
+        var dentiDentista = db.Dentistas.FirstOrDefault(x => x.Id == id);
 
-        return usuario == null ? NotFound() : Ok(usuario);
+        return dentiDentista == null ? NotFound() : Ok(dentiDentista);
     }
 
     [HttpPost]
-    public ActionResult<Usuario> Post(Usuario obj)
+    public ActionResult<Dentista> Post(Dentista obj)
     {
         if (obj.Id == null)
             obj.Id = Guid.NewGuid().ToString();
 
-        db.Usuarios.Add(obj);
+        db.Dentistas.Add(obj);
         db.SaveChanges();
 
 
@@ -43,12 +43,12 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult Put(string id, Usuario obj)
+    public IActionResult Put(string id, Dentista obj)
     {
         if (id != obj.Id)
             return BadRequest();
 
-        db.Usuarios.Update(obj);
+        db.Dentistas.Update(obj);
         db.SaveChanges();
 
         return NoContent();
@@ -57,15 +57,15 @@ public class UsuarioController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(string id)
     {
-        if (db.Usuarios == null)
+        if (db.Dentistas == null)
             return NotFound();
 
-        var obj = db.Usuarios.FirstOrDefault(x => x.Id == id);
+        var obj = db.Dentistas.FirstOrDefault(x => x.Id == id);
 
         if (obj == null)
             return NotFound();
 
-        db.Usuarios.Remove(obj);
+        db.Dentistas.Remove(obj);
         db.SaveChanges();
 
         return NoContent();
