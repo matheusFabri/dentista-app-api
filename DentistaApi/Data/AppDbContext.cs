@@ -5,7 +5,7 @@ namespace DentistaApi.Data
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Dentista> Dentistas { get; set; }
         public DbSet<Consulta> Consultas { get; set; }
         public DbSet<Especialidade> Especialidades { get; set; }
