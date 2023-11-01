@@ -1,9 +1,10 @@
 using DentistaApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DentistaApi.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Dentista> Dentistas { get; set; }
