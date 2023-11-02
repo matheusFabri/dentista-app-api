@@ -20,27 +20,27 @@ public class UsuarioController : ControllerBase
         this.roleManager = roleManager;
     }
 
-    [Authorize(Policy = "Admin")]
     [HttpPost("CriarPaciente")]
-    public async Task<ActionResult<string>> CreatePacienteUser([FromBody] UserInfo model)
+    public async Task<ActionResult<string>> CreatePacienteUser([FromBody] User model)
     {
         return await CreateUserExecute(model, "Paciente");
     }
 
+    [Authorize(Policy = "Admin")]
     [HttpPost("CriarDentista")]
-    public async Task<ActionResult<string>> CreateDentistaUser([FromBody] UserInfo model)
+    public async Task<ActionResult<string>> CreateDentistaUser([FromBody] User model)
     {
         return await CreateUserExecute(model, "Dentista");
     }
 
-    [Authorize(Policy = "Admin")]
+    // [Authorize(Policy = "Admin")]
     [HttpPost("CriarAdmin")]
-    public async Task<ActionResult<string>> CreateAdminUser([FromBody] UserInfo model)
+    public async Task<ActionResult<string>> CreateAdminUser([FromBody] User model)
     {
         return await CreateUserExecute(model, "Admin");
     }
 
-    private async Task<ActionResult<string>> CreateUserExecute(UserInfo userInfo,
+    private async Task<ActionResult<string>> CreateUserExecute(User userInfo,
                                                         string roleName = "Member")
     {
         var ret = await authService.Register(userInfo, roleName);
@@ -59,7 +59,7 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPost("Login")]
-    public async Task<ActionResult<string>> Login([FromBody] UserInfo userInfo)
+    public async Task<ActionResult<string>> Login([FromBody] User userInfo)
     {
         var retToken = await authService.Login(userInfo);
 

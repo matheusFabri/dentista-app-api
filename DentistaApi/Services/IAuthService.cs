@@ -5,8 +5,8 @@ namespace DentistaApi.Services;
 public interface IAuthService
 {
     public Task<IReturn<string>> Register
-                                    (UserInfo model, string role);
-    public Task<IReturn<string>> Login(UserInfo model);
+                                    (User model, string role);
+    public Task<IReturn<string>> Login(User model);
 
     public interface IReturn<T>
     {

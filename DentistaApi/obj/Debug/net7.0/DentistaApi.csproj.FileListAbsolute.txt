@@ -67,3 +67,16 @@ C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\Dentista
 C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\obj\Debug\net7.0\DentistaApi.pdb
 C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\obj\Debug\net7.0\DentistaApi.genruntimeconfig.cache
 C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\obj\Debug\net7.0\ref\DentistaApi.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

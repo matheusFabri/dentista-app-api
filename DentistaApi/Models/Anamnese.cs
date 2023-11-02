@@ -11,6 +11,7 @@ namespace DentistaApi.Models
         public bool Hipertensao { get; set; }
         public bool Gravida { get; set; }
         public bool TraumatismoFace { get; set; }
-        public Paciente? Paciente { get; set; }
+        public Paciente? Paciente { get; set; } = null!;
+        public string? PacienteId { get; set; }
     }
 }

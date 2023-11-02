@@ -16,7 +16,7 @@ public class AuthService : IAuthService
         this.configuration = configuration;
     }
 
-    public async Task<IAuthService.IReturn<string>> Register(UserInfo model, string role)
+    public async Task<IAuthService.IReturn<string>> Register(User model, string role)
     {
         var userExists = await userManager.FindByEmailAsync(model.Email);
         if (userExists != null)
@@ -28,7 +28,7 @@ public class AuthService : IAuthService
             Email = model.Email,
             SecurityStamp = Guid.NewGuid().ToString()
         };
-        var createUserResult = await userManager.CreateAsync(user, model.Password);
+        var createUserResult = await userManager.CreateAsync(user, model.Senha);
 
         if (!createUserResult.Succeeded)
             return new Return<string>(EReturnStatus.Error, "Erro na criação do usuário. Verifique os dados e tente novamente.");
@@ -47,13 +47,13 @@ public class AuthService : IAuthService
             await userManager.AddToRoleAsync(user, role);
     }
 
-    public async Task<IAuthService.IReturn<string>> Login(UserInfo model)
+    public async Task<IAuthService.IReturn<string>> Login(User model)
     {
         var user = await userManager.FindByEmailAsync(model.Email);
         if (user == null)
             return new Return<string>(EReturnStatus.Error,
                 "Nome do usuário inválido.");
-        if (!await userManager.CheckPasswordAsync(user, model.Password))
+        if (!await userManager.CheckPasswordAsync(user, model.Senha))
             return new Return<string>(EReturnStatus.Error,
                 "Senha inválida.");
 
