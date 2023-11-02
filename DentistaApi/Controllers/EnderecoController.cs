@@ -7,34 +7,34 @@ namespace DentistaApi.Controllers;
 
 [ApiController]
 [Route("v1/[controller]")]
-public class DentistaController : ControllerBase
+public class EnderecoController : ControllerBase
 {
     [HttpGet]
-    public ActionResult<IList<Dentista>> Get()
+    public ActionResult<IList<Endereco>> Get()
     {
 
-        var dentDentistas = db.Dentistas.ToList();
+        var enEnderecos = db.Enderecos.ToList();
 
-        return Ok(dentDentistas);
+        return Ok(enEnderecos);
     }
 
     [HttpGet]
     [Route("{id}")]
-    public ActionResult<Dentista> GetById(string id)
+    public ActionResult<Endereco> GetById(string id)
     {
 
-        var dentDentista = db.Dentistas.FirstOrDefault(x => x.Id == id);
+        var enEndereco = db.Enderecos.FirstOrDefault(x => x.Id == id);
 
-        return dentDentista == null ? NotFound() : Ok(dentDentista);
+        return enEndereco == null ? NotFound() : Ok(enEndereco);
     }
 
     [HttpPost]
-    public ActionResult<Dentista> Post(Dentista obj)
+    public ActionResult<Endereco> Post(Endereco obj)
     {
         if (obj.Id == null)
             obj.Id = Guid.NewGuid().ToString();
 
-        db.Dentistas.Add(obj);
+        db.Enderecos.Add(obj);
         db.SaveChanges();
 
 
@@ -43,12 +43,12 @@ public class DentistaController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult Put(string id, Dentista obj)
+    public IActionResult Put(string id, Endereco obj)
     {
         if (id != obj.Id)
             return BadRequest();
 
-        db.Dentistas.Update(obj);
+        db.Enderecos.Update(obj);
         db.SaveChanges();
 
         return NoContent();
@@ -57,15 +57,15 @@ public class DentistaController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(string id)
     {
-        if (db.Dentistas == null)
+        if (db.Enderecos == null)
             return NotFound();
 
-        var obj = db.Dentistas.FirstOrDefault(x => x.Id == id);
+        var obj = db.Enderecos.FirstOrDefault(x => x.Id == id);
 
         if (obj == null)
             return NotFound();
 
-        db.Dentistas.Remove(obj);
+        db.Enderecos.Remove(obj);
         db.SaveChanges();
 
         return NoContent();

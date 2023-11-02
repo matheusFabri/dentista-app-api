@@ -13,9 +13,9 @@ public class EspecialidadeController : ControllerBase
     public ActionResult<IList<Especialidade>> Get()
     {
 
-        var espEspecialidades = db.Especialidades.ToList();
+        var Especialidades = db.Especialidades.ToList();
 
-        return Ok(espEspecialidades);
+        return Ok(Especialidades);
     }
 
     [HttpGet]
