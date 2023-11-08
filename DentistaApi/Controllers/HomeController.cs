@@ -19,12 +19,12 @@ public class HomeController : ControllerBase
     [HttpPost("Login")]
     public async Task<IActionResult> Login([FromBody] UserInfo userInfo)
     {
-        var UserLogado = await authService.Login(userInfo);
+        var retAuth = await authService.Login(userInfo);
 
-        if (UserLogado.Status == EReturnStatus.Success)
-            return Ok(UserLogado.Result);
+        if (retAuth.Status == EReturnStatus.Success)
+            return Ok(retAuth);
         else
-            return BadRequest(UserLogado.Result);
+            return BadRequest(retAuth.Result);
     }
 
     [HttpPost("Admin")]
@@ -36,6 +36,22 @@ public class HomeController : ControllerBase
         obj.SetSenhaHash();
 
         db.Administrador.Add(obj);
+        db.SaveChanges();
+
+
+        return CreatedAtAction(nameof(GetById), new { id = obj.Id }, obj);
+
+    }
+
+    [HttpPost("Paciente")]
+    public ActionResult<Paciente> Post(Paciente obj)
+    {
+        if (obj == null)
+            return BadRequest();
+
+        obj.SetSenhaHash();
+
+        db.Pacientes.Add(obj);
         db.SaveChanges();
 
 

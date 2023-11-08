@@ -8,8 +8,9 @@ using System.Text;
 
 namespace DentistaApi.Services;
 
-public class AuthService : IAuthService{
-    public AuthService( IConfiguration configuration)
+public class AuthService : IAuthService
+{
+    public AuthService(IConfiguration configuration)
     {
 
         this.configuration = configuration;
@@ -17,7 +18,7 @@ public class AuthService : IAuthService{
 
     public async Task<IAuthService.IReturn<string>> Login(UserInfo user)
     {
-        User? usuario = FindByUser(user);        
+        User? usuario = FindByUser(user);
 
         if (usuario == null)
             return new Return<string>(EReturnStatus.Error, null,
@@ -32,18 +33,18 @@ public class AuthService : IAuthService{
         return new Return<string>(EReturnStatus.Success, usuario, token);
     }
 
-    private  User FindByUser(UserInfo user)
+    private User FindByUser(UserInfo user)
     {
         User? usuario = db.Pacientes.FirstOrDefault(x => x.Login == user.Login);
 
         if (usuario == null)
         {
-            usuario =  db.Dentistas.FirstOrDefault(x => x.Login == user.Login);
+            usuario = db.Dentistas.FirstOrDefault(x => x.Login == user.Login);
         }
         if (usuario == null)
         {
-            usuario =  db.Administrador.FirstOrDefault(x => x.Login == user.Login);
-        }        
+            usuario = db.Administrador.FirstOrDefault(x => x.Login == user.Login);
+        }
         return usuario;
     }
     private bool ValidaSenha(User user, UserInfo userInfo)
@@ -60,6 +61,7 @@ public class AuthService : IAuthService{
         var claims = new[]
         {
             new Claim(ClaimTypes.Name, usuario.Nome),
+            new Claim("Login", usuario.Login),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
         var token = tokenHandler.CreateToken(GetTokenDescriptor(claims));
@@ -97,6 +99,6 @@ public class AuthService : IAuthService{
         public T Result { get; private set; }
         public User Usuario { get; private set; }
 
-        
+
     }
 }
