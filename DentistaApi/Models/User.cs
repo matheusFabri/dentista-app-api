@@ -23,6 +23,7 @@ namespace DentistaApi.Models
         public string Cpf { get; set; } = "";        
         public DateOnly DataCadastro { get; set; } = new DateOnly(new DateTime().Year, new DateTime().Month, new DateTime().Day);
         public bool Ativo { get; set; } = true;
+        public string Role { get; set; } = "";
 
         public void SetSenhaHash()
         {

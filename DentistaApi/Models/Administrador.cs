@@ -2,6 +2,13 @@ namespace DentistaApi.Models
 {
     public class Administrador : User
     {
-        public string Role { get; set; } = "admin";
+        public void SetRole()
+        {
+            if (this.Role == null || this.Role == "")
+            {
+                this.Role = "Admin";
+            }
+
+        }
     }
 }

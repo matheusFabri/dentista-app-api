@@ -7,59 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 using DentistaApi.Services;
 
 namespace DentistaApi.Controllers;
-
+[Authorize]
 [ApiController]
 [Route("v1/[controller]")]
 public class DentistaController : ControllerBase
-{
-    //     public DentistaController(UserManager<IdentityUser> userManager,
-    //         SignInManager<IdentityUser> signInManager,
-    //         RoleManager<IdentityRole> roleManager, IAuthService authService)
-    //     {
-    //         this.userManager = userManager;
-    //         this.signInManager = signInManager;
-    //         this.authService = authService;
-    //         this.roleManager = roleManager;
-    //     }
-
-
-    //     [Authorize(Policy = "Admin")]
-    //     [HttpPost("CriarPaciente")]
-    //     public async Task<ActionResult<string>> CreatePacienteUser([FromBody] UserInfo model)
-    //     {
-    //         return await CreateUserExecute(model, "Paciente");
-    //     }
-
-    //     private async Task<ActionResult<string>> CreateUserExecute(UserInfo userInfo,
-    //                                                         string roleName = "Member")
-    //     {
-    //         var ret = await authService.Register(userInfo, roleName);
-
-    //         if (ret.Status == EReturnStatus.Success)
-    //         {
-    //             var retToken = await authService.Login(userInfo);
-
-    //             if (retToken.Status == EReturnStatus.Success)
-    //                 return Ok(retToken.Result);
-    //             else
-    //                 return BadRequest(retToken.Result);
-    //         }
-    //         else
-    //             return BadRequest(ret.Result);
-    //     }
-
-    //     [HttpPost("Login")]
-    //     public async Task<ActionResult<string>> Login([FromBody] UserInfo userInfo)
-    //     {
-    //         var retToken = await authService.Login(userInfo);
-
-    //         if (retToken.Status == EReturnStatus.Success)
-    //             return Ok(retToken.Result);
-    //         else
-    //             return BadRequest(retToken.Result);
-    //     }
-
-
+{ 
     [HttpGet]
     public ActionResult<IList<Dentista>> Get()
     {
@@ -83,7 +35,7 @@ public class DentistaController : ControllerBase
     public ActionResult<Dentista> Post(Dentista obj)
     {
         obj.SetSenhaHash();
-
+        obj.SetRole();
 
         db.Dentistas.Add(obj);
         db.SaveChanges();

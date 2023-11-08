@@ -166,7 +166,3 @@ C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Json.Net.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Json.Net.dll
-C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\System.Security.Permissions.dll

@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace DentistaApi.Models
 {
     public class Paciente : User
 	{
-
-        public string Role { get; set; } = "paciente";
         
         public Endereco? Endereco { get; set; }
         
@@ -15,6 +14,16 @@ namespace DentistaApi.Models
 
         [InverseProperty("Paciente")]
         public ICollection<Consulta> Consultas { get; } = new List<Consulta>();
+
+
+        public void SetRole()
+        {
+            if (this.Role == null || this.Role == "")
+            {
+                this.Role = "Paciente";
+            }
+            
+        }
 
     }
 }

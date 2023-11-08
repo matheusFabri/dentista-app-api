@@ -19,12 +19,12 @@ public class HomeController : ControllerBase
     [HttpPost("Login")]
     public async Task<IActionResult> Login([FromBody] UserInfo userInfo)
     {
-        var retAuth = await authService.Login(userInfo);
+        var UserLogado = await authService.Login(userInfo);
 
-        if (retAuth.Status == EReturnStatus.Success)
-            return Ok(retAuth);
+        if (UserLogado.Status == EReturnStatus.Success)
+            return Ok(UserLogado);
         else
-            return BadRequest(retAuth.Result);
+            return BadRequest(UserLogado);
     }
 
     [HttpPost("Admin")]
@@ -34,6 +34,7 @@ public class HomeController : ControllerBase
             return BadRequest();
 
         obj.SetSenhaHash();
+        obj.SetRole();
 
         db.Administrador.Add(obj);
         db.SaveChanges();
@@ -50,6 +51,7 @@ public class HomeController : ControllerBase
             return BadRequest();
 
         obj.SetSenhaHash();
+        obj.SetRole();
 
         db.Pacientes.Add(obj);
         db.SaveChanges();
@@ -58,6 +60,7 @@ public class HomeController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = obj.Id }, obj);
 
     }
+
 
     [HttpGet]
     [Route("{id}")]

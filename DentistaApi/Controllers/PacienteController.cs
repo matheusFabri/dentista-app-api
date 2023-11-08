@@ -37,6 +37,7 @@ public class PacienteController : ControllerBase
             return BadRequest();
         
         obj.SetSenhaHash();
+        obj.SetRole();
 
         db.Pacientes.Add(obj);
         db.SaveChanges();
