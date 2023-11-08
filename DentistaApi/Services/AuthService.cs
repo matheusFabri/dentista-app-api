@@ -61,7 +61,7 @@ public class AuthService : IAuthService
         var claims = new[]
         {
             new Claim(ClaimTypes.Name, usuario.Nome),
-            new Claim("Login", usuario.Login),
+            new Claim("Id", Convert.ToString(usuario.Id)),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
         var token = tokenHandler.CreateToken(GetTokenDescriptor(claims));
