@@ -3,6 +3,7 @@ using DentistaApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DentistaApi.Controllers;
 
@@ -15,19 +16,37 @@ public class PacienteController : ControllerBase
     public ActionResult<IList<Paciente>> Get()
     {
 
-        var paciPacientes = db.Pacientes.ToList();
+        var paciPacientes = db.Pacientes
+            .Where(x => x.Ativo == true)
+            .ToList();
 
         return Ok(paciPacientes);
     }
-
     [HttpGet]
     [Route("{id}")]
     public ActionResult<Paciente> GetById(int id)
     {
+        var pacienteCompleto = db.Pacientes
+                   .Where(x => x.Ativo == true)
+                   .Include(p => p.Endereco)
+                   .Include(p => p.Anamnese)
+                   .Include(p => p.Responsavel)
+                   .FirstOrDefault(p => p.Id == id);
 
-        var paciPaciente = db.Pacientes.FirstOrDefault(x => x.Id == id);
 
-        return paciPaciente == null ? NotFound() : Ok(paciPaciente);
+        return pacienteCompleto == null ? NotFound() : Ok(pacienteCompleto);
+    }
+
+    [HttpGet]
+    [Route("/v1/paciente/consultas/{id}")]
+    public ActionResult<Paciente> GetByConsultasId(int id)
+    {
+        var pacienteConsultas = db.Pacientes
+            .Where(x => x.Ativo == true)
+            .Include(p => p.Consultas)
+            .FirstOrDefault(p => p.Id == id);
+
+        return pacienteConsultas == null ? NotFound() : Ok(pacienteConsultas);
     }
 
     [HttpPost]
@@ -43,7 +62,7 @@ public class PacienteController : ControllerBase
         db.SaveChanges();
 
 
-        return CreatedAtAction(nameof(GetById), new { id = obj.Id }, obj);
+        return Ok();
 
     }
 
@@ -70,11 +89,15 @@ public class PacienteController : ControllerBase
         if (obj == null)
             return NotFound();
 
+        //obj.Ativo = false;
+        //db.Pacientes.Update(obj);
         db.Pacientes.Remove(obj);
         db.SaveChanges();
 
         return NoContent();
     }
+
+
 
     private readonly AppDbContext db = new();
 }

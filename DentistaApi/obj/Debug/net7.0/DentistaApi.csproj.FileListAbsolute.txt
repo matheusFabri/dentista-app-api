@@ -88,6 +88,7 @@ C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\DentistaApi.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\DentistaApi.pdb
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Humanizer.dll
+C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Json.Net.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -103,6 +104,7 @@ C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
@@ -110,6 +112,7 @@ C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.OpenApi.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\SQLitePCLRaw.core.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\SQLitePCLRaw.provider.e_sqlite3.dll
@@ -118,6 +121,7 @@ C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\runtimes\alpine-arm\native\libe_sqlite3.so
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\runtimes\alpine-arm64\native\libe_sqlite3.so
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\runtimes\alpine-x64\native\libe_sqlite3.so
@@ -162,7 +166,7 @@ C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\obj\
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\obj\Debug\net7.0\DentistaApi.pdb
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\obj\Debug\net7.0\DentistaApi.genruntimeconfig.cache
 C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\obj\Debug\net7.0\ref\DentistaApi.dll
-C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\System.Security.Permissions.dll
-C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Json.Net.dll
-C:\Users\Guilherme\Desktop\Facul\4periodo\dentista-app-api-main\DentistaApi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Json.Net.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\canel\Documentos\Faculdade_4Periodo\FullStack\dentista-app-api\DentistaApi\bin\Debug\net7.0\System.Security.Permissions.dll

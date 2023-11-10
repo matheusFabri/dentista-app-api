@@ -77,9 +77,9 @@ public class AuthService : IAuthService{
         {
             Issuer = configuration["JWT:Issuer"],
             Audience = configuration["JWT:Audience"],
-            Expires = DateTime.UtcNow.AddMinutes(600000),
+            Expires = DateTime.UtcNow.AddHours(6),
             SigningCredentials = new SigningCredentials(authSigningKey,
-                                            SecurityAlgorithms.HmacSha256),
+                                            SecurityAlgorithms.HmacSha256Signature),
             Subject = new ClaimsIdentity(claims)
         };
     }

@@ -19,9 +19,11 @@ namespace DentistaApi.Models
         public string Senha { get; set; } = "";
         [Required]        
         public string Telefone { get; set; } = "";
-        [Required]        
-        public string Cpf { get; set; } = "";        
-        public DateOnly DataCadastro { get; set; } = new DateOnly(new DateTime().Year, new DateTime().Month, new DateTime().Day);
+        [Required]
+        public string Cpf { get; set; } = "";
+        [Required]
+        public string dataNasc { get; set; } = "";
+        public string DataCadastro { get; set; } = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         public bool Ativo { get; set; } = true;
         public string Role { get; set; } = "";
 
@@ -29,6 +31,7 @@ namespace DentistaApi.Models
         {
             Senha = Senha.GerarHash();
         }
-        
+
+       
     }
 }
