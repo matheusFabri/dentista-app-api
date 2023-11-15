@@ -6,8 +6,7 @@ namespace DentistaApi.Models
     {
         [InverseProperty("Dentista")]
         public ICollection<Consulta> Consultas { get; } = new List<Consulta>();
-        public DateOnly DataNascimento { get; set; }
-        
+
         public Especialidade? Especialidade { get; set; }
 
         public void SetRole()

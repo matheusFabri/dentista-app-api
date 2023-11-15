@@ -10,8 +10,8 @@ namespace DentistaApi.Models
         public int? Id { get; set; }
         public string ProcedimentoConsulta { get; set; } = "";
         public DateOnly DataConsulta { get; set; }
-        public TimeOnly HoraConsulta { get; set; }
-        public TimeOnly TempoPrevisto { get; set; }
+        public string HoraConsulta { get; set; }
+        public string TempoPrevisto { get; set; }
 
         [ForeignKey("PacienteId")]
         public Paciente Paciente { get; set; }

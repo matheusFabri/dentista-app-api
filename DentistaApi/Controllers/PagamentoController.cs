@@ -32,14 +32,14 @@ public class PagamentoController : ControllerBase
     [HttpPost]
     public ActionResult<Pagamento> Post(Pagamento obj)
     {
-        if (obj.Id == null)
-            obj.Id = int.Parse(Guid.NewGuid().ToString());
+        if (obj == null)
+            return BadRequest();
 
         db.Pagamentos.Add(obj);
         db.SaveChanges();
 
 
-        return CreatedAtAction(nameof(GetById), new { id = obj.Id }, obj);
+        return Ok();
 
     }
 
