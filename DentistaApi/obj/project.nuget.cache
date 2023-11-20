@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MnuTYnDpw4IXzlczuFflX8sswkiHIbe4HWYhTweloKXSvA/OafKA/ecFXWzSTCmyITTLhE3y6ecVnu+5EXCP6Q==",
+  "dgSpecHash": "+4Y8Kkbh3Fol6GwNf5edubE7jzAUgibnz/7LwOFHSlOUbKZJATb1bW0Y4OJj75tY/Pb68kMkunVFE8WwX7XJzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\canel\\Documentos\\Faculdade_4Periodo\\FullStack\\dentista-app-api\\DentistaApi\\DentistaApi.csproj",
+  "projectFilePath": "c:\\Users\\canel\\Documentos\\Faculdade_4Periodo\\FullStack\\dentista-app-api\\DentistaApi\\DentistaApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\canel\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\canel\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",

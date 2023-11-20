@@ -1,8 +1,11 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using DentistaApi.Data;
 using DentistaApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DentistaApi.Controllers;
 [Authorize]
@@ -13,8 +16,18 @@ public class ConsultaController : ControllerBase
     [HttpGet]
     public ActionResult<IList<Consulta>> Get()
     {
+        var consultas = db.Consultas.Include(p => p.Dentista)
+                                    .Include(p => p.Paciente)
+                                    .Include(p => p.Pagamento)
+                                    .ToList();
 
-        var consultas = db.Consultas.ToList();
+        // var options = new JsonSerializerOptions
+        // {
+        //     ReferenceHandler = ReferenceHandler.Preserve,
+        // };
+
+        // var jsonString = JsonSerializer.Serialize(consultas, options);
+
 
         return Ok(consultas);
     }
@@ -24,7 +37,11 @@ public class ConsultaController : ControllerBase
     public ActionResult<Consulta> GetById(int id)
     {
 
-        var consulta = db.Consultas.FirstOrDefault(x => x.Id == id);
+        var consulta = db.Consultas
+            .Include(p => p.Dentista)
+            .Include(p => p.Paciente)
+            .Include(p => p.Pagamento)
+            .FirstOrDefault(p => p.Id == id);
 
         return consulta == null ? NotFound() : Ok(consulta);
     }
@@ -32,13 +49,27 @@ public class ConsultaController : ControllerBase
     [HttpPost]
     public ActionResult<Consulta> Post(Consulta obj)
     {
-        
 
-        db.Consultas.Add(obj);
+        var dentista = db.Dentistas.First(x => x.Id == obj.Dentista.Id);
+        var paciente = db.Pacientes.First(x => x.Id == obj.Paciente.Id);
+        var pagamento = db.Pagamentos.FirstOrDefault(x => x.Id == obj.Pagamento.Id);
+
+        Consulta nova = new Consulta
+        {
+            Pagamento = pagamento,
+            Dentista = dentista,
+            Paciente = paciente,
+            ProcedimentoConsulta = obj.ProcedimentoConsulta,
+            DataConsulta = obj.DataConsulta,
+            HoraConsulta = obj.HoraConsulta,
+            TempoPrevisto = obj.TempoPrevisto
+        };
+
+        db.Consultas.Add(nova);
         db.SaveChanges();
 
 
-        return CreatedAtAction(nameof(GetById), new { id = obj.Id }, obj);
+        return Ok();
 
     }
 
@@ -72,4 +103,6 @@ public class ConsultaController : ControllerBase
     }
 
     private readonly AppDbContext db = new();
+
+
 }

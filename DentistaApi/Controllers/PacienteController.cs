@@ -18,6 +18,9 @@ public class PacienteController : ControllerBase
 
         var paciPacientes = db.Pacientes
             .Where(x => x.Ativo == true)
+            .Include(p => p.Anamnese)
+            .Include(p => p.Endereco)
+            .Include(p => p.Responsavel)
             .ToList();
 
         return Ok(paciPacientes);
@@ -54,7 +57,7 @@ public class PacienteController : ControllerBase
     {
         if (obj == null)
             return BadRequest();
-        
+
         obj.SetSenhaHash();
         obj.SetRole();
 
