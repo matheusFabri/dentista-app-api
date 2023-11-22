@@ -19,15 +19,11 @@ public class ConsultaController : ControllerBase
         var consultas = db.Consultas.Include(p => p.Dentista)
                                     .Include(p => p.Paciente)
                                     .Include(p => p.Pagamento)
+                                    .Include(p => p.Dentista.Especialidade)
                                     .ToList();
 
-        // var options = new JsonSerializerOptions
-        // {
-        //     ReferenceHandler = ReferenceHandler.Preserve,
-        // };
-
-        // var jsonString = JsonSerializer.Serialize(consultas, options);
-
+        consultas.ToList().ForEach(p => p.Paciente.Consultas.Clear());
+        consultas.ToList().ForEach(p => p.Dentista.Consultas.Clear());
 
         return Ok(consultas);
     }
@@ -42,6 +38,9 @@ public class ConsultaController : ControllerBase
             .Include(p => p.Paciente)
             .Include(p => p.Pagamento)
             .FirstOrDefault(p => p.Id == id);
+
+        consulta.Paciente.Consultas.Clear();
+        consulta.Dentista.Consultas.Clear();
 
         return consulta == null ? NotFound() : Ok(consulta);
     }

@@ -23,6 +23,7 @@ public class PacienteController : ControllerBase
             .Include(p => p.Responsavel)
             .ToList();
 
+
         return Ok(paciPacientes);
     }
     [HttpGet]
