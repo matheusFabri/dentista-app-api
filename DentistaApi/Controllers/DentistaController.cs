@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using DentistaApi.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace DentistaApi.Controllers;
 [Authorize]
@@ -16,7 +17,7 @@ public class DentistaController : ControllerBase
     public ActionResult<IList<Dentista>> Get()
     {
 
-        var dentDentistas = db.Dentistas.ToList();
+        var dentDentistas = db.Dentistas.Include(d => d.Especialidade).ToList();
 
         return Ok(dentDentistas);
     }
@@ -34,14 +35,27 @@ public class DentistaController : ControllerBase
     [HttpPost]
     public ActionResult<Dentista> Post(Dentista obj)
     {
-        obj.SetSenhaHash();
-        obj.SetRole();
+        var espec = db.Especialidades.FirstOrDefault(x => x.Id == obj.Especialidade.Id);
+        Dentista novo = new Dentista()
+        {
+            Nome = obj.Nome,
+            Email = obj.Email,
+            Login = obj.Login,
+            Senha   = obj.Senha,
+            Telefone = obj.Telefone,
+            Cpf = obj.Cpf,
+            dataNasc = obj.dataNasc,
+            Especialidade = espec,
 
-        db.Dentistas.Add(obj);
+        };
+        novo.SetSenhaHash();
+        novo.SetRole();
+
+        db.Dentistas.Add(novo);
         db.SaveChanges();
 
 
-        return CreatedAtAction(nameof(GetById), new { id = obj.Id }, obj);
+        return CreatedAtAction(nameof(GetById), new { id = novo.Id }, novo);
 
     }
 

@@ -51,11 +51,11 @@ public class ConsultaController : ControllerBase
 
         var dentista = db.Dentistas.First(x => x.Id == obj.Dentista.Id);
         var paciente = db.Pacientes.First(x => x.Id == obj.Paciente.Id);
-        var pagamento = db.Pagamentos.FirstOrDefault(x => x.Id == obj.Pagamento.Id);
+        //var pagamento = db.Pagamentos.FirstOrDefault(x => x.Id == obj.Pagamento.Id);
 
         Consulta nova = new Consulta
         {
-            Pagamento = pagamento,
+            Pagamento = new Pagamento(),
             Dentista = dentista,
             Paciente = paciente,
             ProcedimentoConsulta = obj.ProcedimentoConsulta,
