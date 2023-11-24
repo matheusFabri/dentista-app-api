@@ -12,12 +12,14 @@ namespace DentistaApi.Controllers;
 [ApiController]
 [Route("v1/[controller]")]
 public class DentistaController : ControllerBase
-{ 
+{
     [HttpGet]
     public ActionResult<IList<Dentista>> Get()
     {
 
-        var dentDentistas = db.Dentistas.Include(d => d.Especialidade).ToList();
+        var dentDentistas = db.Dentistas
+        // .Include(d => d.Especialidade)
+        .ToList();
 
         return Ok(dentDentistas);
     }
@@ -35,17 +37,17 @@ public class DentistaController : ControllerBase
     [HttpPost]
     public ActionResult<Dentista> Post(Dentista obj)
     {
-        var espec = db.Especialidades.FirstOrDefault(x => x.Id == obj.Especialidade.Id);
+        // var espec = db.Especialidades.FirstOrDefault(x => x.Id == obj.Especialidade.Id);
         Dentista novo = new Dentista()
         {
             Nome = obj.Nome,
             Email = obj.Email,
             Login = obj.Login,
-            Senha   = obj.Senha,
+            Senha = obj.Senha,
             Telefone = obj.Telefone,
             Cpf = obj.Cpf,
             dataNasc = obj.dataNasc,
-            Especialidade = espec,
+            // Especialidade = espec,
 
         };
         novo.SetSenhaHash();

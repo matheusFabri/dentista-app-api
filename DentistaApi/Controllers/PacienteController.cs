@@ -41,16 +41,33 @@ public class PacienteController : ControllerBase
         return pacienteCompleto == null ? NotFound() : Ok(pacienteCompleto);
     }
 
+    // [HttpGet]
+    // [Route("/v1/paciente/consultas/{id}")]
+    // public ActionResult<Paciente> GetByConsultasId(int id)
+    // {
+    //     var pacienteConsultas = db.Pacientes
+    //         .Where(x => x.Ativo == true)
+    //         .Include(p => p.Consultas)
+    //         .FirstOrDefault(p => p.Id == id);
+
+
+    //     return pacienteConsultas == null ? NotFound() : Ok(pacienteConsultas);
+    // }
+
     [HttpGet]
     [Route("/v1/paciente/consultas/{id}")]
-    public ActionResult<Paciente> GetByConsultasId(int id)
+    public ActionResult<IList<Consulta>> GetByConsultasId(int id)
     {
-        var pacienteConsultas = db.Pacientes
-            .Where(x => x.Ativo == true)
-            .Include(p => p.Consultas)
-            .FirstOrDefault(p => p.Id == id);
 
-        return pacienteConsultas == null ? NotFound() : Ok(pacienteConsultas);
+        var consulta = db.Consultas
+               .Include(p => p.Paciente)
+               .Include(p => p.Dentista)
+               .Where(p => p.Paciente.Id == id).ToList();
+
+        consulta.ToList().ForEach(p => p.Paciente.Consultas.Clear());
+        consulta.ToList().ForEach(p => p.Dentista.Consultas.Clear());
+
+        return consulta == null ? NotFound() : Ok(consulta);
     }
 
     [HttpPost]
